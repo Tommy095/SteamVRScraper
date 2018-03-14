@@ -46,7 +46,7 @@ with open("pagedata.txt", "w+") as file:
                 browser.get(url_details_final)
                 response_details = browser.page_source
                 try:
-                    price = (re.search("\$\d+(?:\.\d+)?",
+                    price = (re.search("\$\d+(?:\.\d+)?", #Use regex to locate prices
                                        response_details)).group()[1:] #Get price from html, handle if no price found
                 except AttributeError:
                     print("Price not found")
