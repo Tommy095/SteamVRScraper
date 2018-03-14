@@ -29,7 +29,7 @@ with open("pagedata.txt", "w+") as file:
         url_final = url_base + str(pagenumber) #Update page number
         browser.get(url_final)
         res = browser.page_source #Grab html from selenium
-        res_bs = bs(res, "html.parser") #Beautify returned html
+        res_bs = bs(res, "html.parser") #Run BeautifulSoup on returned html
         for link in res_bs.find_all('a'):
             if "http://store.steampowered.com/app/" in link.get("href"): #Ignore items from string_ignore
                 if any(
